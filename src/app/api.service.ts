@@ -9,8 +9,27 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  turmas(): Observable<any> {
+  SalvarMatricula(turmaId: number, alunoId: number): Observable<any> {
+    const situacao = 'AM'
+    const matricula = {turmaId: turmaId, alunoId: alunoId, situacao: situacao};
+    return this.http.post(this.API_URL + '/matriculas', matricula);
+  }
+
+  getTurmas(): Observable<any> {
     return this.http.get(this.API_URL + '/turmas');
+  }
+
+  alterarMatricula(matriculaId:number, turmaId: number, alunoId: number, situacao: String): Observable<any> {
+    const matricula = {turmaId: turmaId, alunoId: alunoId, situacao: situacao};
+    return this.http.patch(this.API_URL + '/matriculas/' + matriculaId, matricula);
+  }
+
+  getAlunos(): Observable<any> {
+    return this.http.get(this.API_URL + '/alunos');
+  }
+  
+  getMatriculas(): Observable<any> {
+    return this.http.get(this.API_URL + '/matriculas?_expand=turma&_expand=aluno');
   }
 
   disciplinas(): Observable<any> {

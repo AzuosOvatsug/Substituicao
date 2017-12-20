@@ -1,0 +1,30 @@
+<div *ngIf='matriculas'>
+    <a routerLink="/matricular" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Matricular Aluno</a>
+  <h1>Gerenciador de Matriculas</h1>
+  <table>
+    <thead>
+      <tr>
+        <td>Ano Letivo</td>
+        <td>Codigo da Turma</td>
+        <td>Aluno</td>
+        <td>Situação</td>
+        <td>Ação</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let m of matriculas'>
+        <td>{{m.turma.ano}}</td>
+        <td>{{m.turma.codigo}}</td>
+        <td>{{m.aluno.nome}}</td>
+        <td>{{m.situacao}}</td>
+        <a class="btn btn-primary" [routerLink]="['/matriculas', m.id]">Gerenciar Matricula</a>
+      </tr>
+    </tbody>
+  </table>
+  <h2> Estatisticas </h2>
+  <p><strong>Numero de Alunos: </strong> {{totalalunos}}</p>
+  <p><strong>Porcentagem de Alunos matriculados em situação “AM”: </strong> {{AM}}%</p>
+  <p><strong>Porcentagem de Alunos matriculados em situação “AT”: </strong> {{AT}}%</p>
+  <p><strong>Porcentagem de Alunos matriculados em situação “CA”: </strong> {{CA}}%</p>
+  <p><strong>Porcentagem de Alunos matriculados em situação “EV”: </strong> {{EV}}%</p>
+</div>

@@ -8,15 +8,15 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './home/home.component';
 import {PaginaNaoEncontradaComponent} from './pagina-nao-encontrada/pagina-nao-encontrada.component';
-import {RegistrarFrequenciaComponent} from './registrar-frequencia/registrar-frequencia.component';
 import {ApiService} from './api.service';
-import {RelatorioDeFrequenciasComponent} from './relatorio-de-frequencias/relatorio-de-frequencias.component';
-import {ListaDeTurmasComponent} from './lista-de-turmas/lista-de-turmas.component';
+import { GerenciarMatriculasComponent } from './gerenciar-matriculas/gerenciar-matriculas.component';
+import { GerenciarMatriculaComponent } from './gerenciar-matricula/gerenciar-matricula.component';
+import { MatricularAlunoComponent } from './matricular-aluno/matricular-aluno.component';
 
 const appRoutes: Routes = [
-  {path: 'frequencias/cadastrar', component: RegistrarFrequenciaComponent},
-  {path: 'frequencias/relatorio', component: RelatorioDeFrequenciasComponent},
-  {path: 'turmas', component: ListaDeTurmasComponent},
+  {path: 'matriculas', component: GerenciarMatriculasComponent},
+  {path: 'matriculas/:id', component: GerenciarMatriculaComponent},
+  {path: 'matricular', component: MatricularAlunoComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: PaginaNaoEncontradaComponent}
 ];
@@ -26,9 +26,9 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     PaginaNaoEncontradaComponent,
-    RegistrarFrequenciaComponent,
-    RelatorioDeFrequenciasComponent,
-    ListaDeTurmasComponent
+    GerenciarMatriculasComponent,
+    GerenciarMatriculaComponent,
+    MatricularAlunoComponent
   ],
   imports: [
     RouterModule.forRoot(
